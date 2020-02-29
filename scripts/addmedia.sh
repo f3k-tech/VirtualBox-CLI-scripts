@@ -30,7 +30,7 @@ select yn in "Yes" "No"; do
         filename=${input:-"$filename"}
 
         VBoxManage storagectl "$name" --name "SATA" --add sata
-        VBoxManage storageattach "$name"--storagectl "SATA" --type hdd --medium "$filename"
+        VBoxManage storageattach "$name" --storagectl "SATA" --type hdd --medium "$filename"
 
         break;;
     No ) break;;
