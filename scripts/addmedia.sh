@@ -31,7 +31,7 @@ select yn in "Yes" "No"; do
         read -e -i "$filename" -p "Provide full path to the image (iso/vmdk etc): " input
         filename=${input:-"$filename"}
 
-        VBoxManage storagectl "$name" --name "DVD Controller" --add dvddrive
+        VBoxManage storagectl "$name" --name "DVD Controller" --add sata
         VBoxManage storageattach "$name" --storagectl "DVD Controller" --port 0  --device 0 --type dvddrive --medium "$filename"
 
         break;;
