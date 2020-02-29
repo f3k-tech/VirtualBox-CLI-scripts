@@ -7,4 +7,4 @@ Creates a new and empty Virtual Machine.
 
 ## addmedia.sh
 
-Under Construction
+Add a harddrive and or installation medium.
