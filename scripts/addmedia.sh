@@ -37,8 +37,6 @@ select yn in "Yes" "No"; do
 esac
 done
 
-echo "The following image is attached:"
-VBoxManage showvminfo OracleLinux6Test | grep "$name"
 echo ""
 echo "Start your Vbox with the following command:"
 echo "VBoxManage startvm $name"
