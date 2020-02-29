@@ -42,4 +42,3 @@ VBoxManage showvminfo OracleLinux6Test | grep "$name"
 echo ""
 echo "Start your Vbox with the following command:"
 echo "VBoxManage startvm $name"
-
