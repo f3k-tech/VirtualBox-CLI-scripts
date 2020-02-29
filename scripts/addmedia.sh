@@ -12,7 +12,7 @@ select yn in "Yes" "No"; do
         filename="/home/$USER/VirtualBox VMs/$name/$name.vmdk"
         read -e -i "$filename" -p "Filename of the HDD: " input
         filename=${input:-"$filename"}
-        VBoxManage createhd --filename $filename --size 5120 --variant Standard
+        VBoxManage createhd --filename "$filename" --size 5120 --variant Standard
         break;;
     No ) break;;
 esac
@@ -33,7 +33,7 @@ select yn in "Yes" "No"; do
         VBoxManage storageattach "$name"--storagectl "SATA" --medium "$filename"
 
         break;;
-    No ) exit;;
+    No ) break;;
 esac
 done
 
