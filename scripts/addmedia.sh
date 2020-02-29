@@ -13,6 +13,8 @@ select yn in "Yes" "No"; do
         read -e -i "$filename" -p "Filename of the HDD: " input
         filename=${input:-"$filename"}
         VBoxManage createhd --filename "$filename" --size 5120 --variant Standard
+        VBoxManage storagectl "$name" --name "SATA Controller" --add sata --bootable on
+        VBoxManage storageattach "$name" --storagectl "SATA Controller" --port 0 --device 0 --type hdd --medium "$filename"
         break;;
     No ) break;;
 esac
