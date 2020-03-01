@@ -19,6 +19,16 @@ This simple script creates a virtual machine with standard settings:
 
 The script is quite simple so it should be easy to adapt to your own needs. Feel free to contribute if you have any improvements.
 
+## vmsettings.sh
+
+You can change the following basic settings with this script:
+
+* Change memory.
+* Change amount of CPU's.
+* Change CPU exec cap.
+
+More features are expected soon.
+
 ## What's supported?
 
 The following setups have been tested, but I'm quite confident it will work with other setups as well.
