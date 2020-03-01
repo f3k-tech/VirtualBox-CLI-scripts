@@ -17,7 +17,7 @@ select ostype in "${oslist[@]}"
 do
     case $ostype in
         "Other")
-            echo "Enter os ID (use "VBoxManage list ostypes" to list os types):"
+            echo "Enter os ID (use \"VBoxManage list ostypes\" to list os types):"
             read os
             break;;
         *)  break;;
