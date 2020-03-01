@@ -9,7 +9,7 @@ Install and Edit Virtualbox virtual machines from the command line.
 
 ## createvm.sh
 
-This simple script creates a minimal and standard virtual machine:
+This simple script creates a virtual machine with standard settings:
 
 * Creates virtual machine
 * Sets the OS type
