@@ -35,9 +35,15 @@ name=${input:-"$1"}
 # Show the settings of the selected VM
 show_vmsettings
 
+# Propose command to poweroff VM
+echo "---------------------------------------------------"
+echo "Please poweroff the machine."
+echo "This command should do the trick:"
+echo "VBoxManage controlvm "$name" acpipowerbutton"
+echo "---------------------------------------------------"
+
 # Change memory
 echo "---------------------------------------------------"
-# Prompt memory size
 memsize="$memsize"
 read -e -i "$memsize" -p "New memory size (MB): " input
 memsize=${input:-"$memsize"}
@@ -59,3 +65,7 @@ VBoxManage modifyvm "$name" --cpus "$cpunr"
 
 # Show the new settings of the selected VM
 show_vmsettings
+
+# Show start command
+echo "Use the following command to start your VM headless"
+echo "VBoxManage startvm "$name" --type headless"
