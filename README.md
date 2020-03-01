@@ -28,6 +28,7 @@ You can change the following basic settings with this script:
 * Change memory
 * Change amount of CPU's
 * Change CPU exec cap
+* Choose between NAT and Bridged Adapter
 
 More features are expected soon.
 

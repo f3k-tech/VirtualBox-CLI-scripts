@@ -48,6 +48,7 @@ read -e -i "$name" -p "Change name: " input
 newname=${input:-"$name"}
 VBoxManage modifyvm "$name" --name "$newname"
 name="$newname"
+show_vmsettings # Update settings with new name
 
 # Change groups
 echo "---------------------------------------------------"
@@ -76,6 +77,38 @@ cpunr="$cpunr"
 read -e -i "$cpunr" -p "New amount of CPU's: " input
 cpunr=${input:-"$cpunr"}
 VBoxManage modifyvm "$name" --cpus "$cpunr"
+
+# Change adapter
+echo "---------------------------------------------------"
+echo "Change network adapter?"
+oslist=(
+    "Skip"
+    "NAT"
+    "Bridged"
+)
+select ostype in "${oslist[@]}"
+do
+    case $ostype in
+        "Skip")
+            break;;
+        "NAT")
+            VBoxManage modifyvm "$name" --nic1 nat
+            break;;
+        "Bridged")
+            echo "Use \"ip a\" to list adapters"
+            # Prompt for adapter number
+            adapternr="1"
+            read -e -i "$adapternr" -p "Adapter number: " input
+            adapternr=${input:-"$adapternr"}
+            "Prompt for adapter"
+            adapternr="eth0"
+            read -e -i "$adapternr" -p "Adapter: " input
+            adapter=${input:-"$adapter"}
+            VBoxManage modifyvm "$name" --nic1 bridged --bridgeadapter$adapternr "$adapter"
+            break;;
+        *)  break;;
+    esac
+done
 
 # Show the new settings of the selected VM
 show_vmsettings
