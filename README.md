@@ -1,6 +1,6 @@
 # VirtualBox-CLI-scripts
 
-Install and Edit Virtualbox Virtual Machines from the command line.
+Install and Edit Virtualbox virtual machines from the command line.
 
 ## Important notes
 
