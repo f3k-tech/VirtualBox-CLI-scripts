@@ -7,7 +7,7 @@ Install and Edit Virtualbox virtual machines from the command line.
 * Don't quote paths.
 * Escape with backslashes is allowed but not needed.
 
-## createvm.sh
+## vmcreate.sh
 
 This simple script creates a virtual machine with standard settings:
 
