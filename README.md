@@ -7,7 +7,7 @@ Install and Edit Virtualbox virtual machines from the command line.
 * Don't quote paths.
 * Escape with backslashes is allowed but not needed.
 
-## createvm.sh
+## vmcreate.sh
 
 This simple script creates a virtual machine with standard settings:
 
@@ -18,6 +18,16 @@ This simple script creates a virtual machine with standard settings:
 * Adds installation image (Optional)
 
 The script is quite simple so it should be easy to adapt to your own needs. Feel free to contribute if you have any improvements.
+
+## vmsettings.sh
+
+You can change the following basic settings with this script:
+
+* Change memory.
+* Change amount of CPU's.
+* Change CPU exec cap.
+
+More features are expected soon.
 
 ## What's supported?
 
