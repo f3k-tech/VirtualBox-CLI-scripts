@@ -42,6 +42,14 @@ echo "This command should do the trick:"
 echo "VBoxManage controlvm "$name" acpipowerbutton"
 echo "---------------------------------------------------"
 
+
+# Change Name
+echo "---------------------------------------------------"
+read -e -i "$name" -p "New name: " input
+newname=${input:-"$name"}
+VBoxManage modifyvm "$name" --name "$newname"
+name="$newname"
+
 # Change memory
 echo "---------------------------------------------------"
 memsize="$memsize"
