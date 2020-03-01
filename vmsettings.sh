@@ -11,6 +11,7 @@ show_vmsettings() {
     echo "---------------------------------------------------"
     VBoxManage showvminfo "$name" | grep "Name:"
     VBoxManage showvminfo "$name" | grep "Groups:"
+    groups=$(VBoxManage showvminfo "$name" | grep "Groups:" | sed "s/Groups://" | tr -d " ")
     VBoxManage showvminfo "$name" | grep "Memory size"
     memsize=$(VBoxManage showvminfo "$name" | grep "Memory size" | tr -d "Memory size:B")
     VBoxManage showvminfo "$name" | grep "CPU exec cap"
@@ -36,19 +37,24 @@ name=${input:-"$1"}
 show_vmsettings
 
 # Propose command to poweroff VM
-echo "---------------------------------------------------"
 echo "Please poweroff the machine."
 echo "This command should do the trick:"
 echo "VBoxManage controlvm "$name" acpipowerbutton"
-echo "---------------------------------------------------"
 
 
 # Change Name
 echo "---------------------------------------------------"
-read -e -i "$name" -p "New name: " input
+read -e -i "$name" -p "Change name: " input
 newname=${input:-"$name"}
 VBoxManage modifyvm "$name" --name "$newname"
 name="$newname"
+
+# Change groups
+echo "---------------------------------------------------"
+groups="$groups"
+read -e -i "$groups" -p "Change groups (format: \"/group\" default: \"/\"): " input
+groups=${input:-"$groups"}
+VBoxManage modifyvm "$name" --groups "$groups"
 
 # Change memory
 echo "---------------------------------------------------"
