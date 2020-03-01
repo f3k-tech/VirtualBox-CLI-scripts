@@ -24,6 +24,7 @@ The script is quite simple so it should be easy to adapt to your own needs. Feel
 You can change the following basic settings with this script:
 
 * Change name.
+* Change groups
 * Change memory.
 * Change amount of CPU's.
 * Change CPU exec cap.
