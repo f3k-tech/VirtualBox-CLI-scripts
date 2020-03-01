@@ -48,7 +48,7 @@ select yn in "Yes" "No"; do
         hdname="$basefolder/$name/$name.vmdk"
         read -e -i "$hdname" -p "Filename of the HDD: " input
         hdname=${input:-"$hdname"}
-        VBoxManage createhd --filename "$hdname" --size 5120 --variant Standard
+        VBoxManage createhd --filename "$hdname" --size 25600 --variant Standard
         VBoxManage storageattach "$name" --storagectl "SATA" --port 0 --device 0 --type hdd --medium "$hdname"
         break;;
     No ) break;;
