@@ -23,7 +23,7 @@ The script is quite simple so it should be easy to adapt to your own needs. Feel
 
 The following setups have been tested, but I'm quite confident it will work with other setups as well.
 
-| Host OS      | Guest OS     | Install medium | HDD   | VBox Version |
-| :----------- | :----------- | :------------: | :---: | :----------: |
-| Ubuntu 18.04 | Windows 10   | ISO            | vmdk  | 6.1          |
-| Ubuntu 18.04 | Ubuntu 18.04 | ISO            | vmdk  | 6.1          |
+| Host OS      | Guest OS     | Installation Medium | HDD   | VBox Version |
+| :----------- | :----------- | :-----------------: | :---: | :----------: |
+| Ubuntu 18.04 | Windows 10   | ISO                 | vmdk  | 6.1          |
+| Ubuntu 18.04 | Ubuntu 18.04 | ISO                 | vmdk  | 6.1          |
