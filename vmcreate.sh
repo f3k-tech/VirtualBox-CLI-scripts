@@ -45,10 +45,10 @@ select yn in "Yes" "No"; do
     case $yn in
     Yes )
         # Prompt for HD filepath and name
-        hdname="$basefolder/$name/$name.vmdk"
+        hdname="$basefolder/$name/$name.vdi"
         read -e -i "$hdname" -p "Filename of the HDD: " input
         hdname=${input:-"$hdname"}
-        VBoxManage createhd --filename "$hdname" --size 25600 --variant Standard
+        VBoxManage createhd --filename "$hdname" --size 80000 --variant Standard
         VBoxManage storageattach "$name" --storagectl "SATA" --port 0 --device 0 --type hdd --medium "$hdname"
         break;;
     No ) break;;
@@ -63,7 +63,7 @@ select yn in "Yes" "No"; do
     Yes )
         # prompt for installation medium and path
         imgname="$basefolder/image.iso"
-        read -e -i "$imgname" -p "Provide full path to the image (iso/vmdk etc): " input
+        read -e -i "$imgname" -p "Provide full path to the image (iso/vdi etc): " input
         imgname=${input:-"$imgname"}
         VBoxManage storageattach "$name" --storagectl "SATA" --port 1  --device 0 --type dvddrive --medium "$imgname"
         break;;
