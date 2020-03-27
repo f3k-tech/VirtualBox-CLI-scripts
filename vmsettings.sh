@@ -33,6 +33,11 @@ echo "---------------------------------------------------"
 read -e -i "$1" -p "Enter name of the VM you'd like to edit:" input
 name=${input:-"$1"}
 
+# Prompt for folder
+basefolder="/home/$USER/VirtualBox VMs"
+read -e -i "$basefolder" -p "Path of basefolder: " input
+basefolder=${input:-"$basefolder"}
+
 # Show the settings of the selected VM
 show_vmsettings
 
@@ -109,6 +114,22 @@ do
         *)  break;;
     esac
 done
+
+# Change HDD size
+echo "---------------------------------------------------"
+read -e -i "$hddsize" -p "New hdd size (MB): " input
+hddsize=${input:-"$hddsize"}
+hddsize = 80000
+echo "---------------------------------------------------"
+read -e -i "$hddsize" -p "New hdd size (MB): " input
+hddsize=${input:-"$hddsize"}
+cd $basefolder/$name
+# clone
+vboxmanage clonemedium server.vmdk gitlab.vdi --format vdi
+# unmount
+vboxmanage storageattach $name --storagectl "SATA" --port 0 --device 0 --type hdd --medium $hddname
+vboxmanage modifymedium  gitlab.vmdk --resize 80000
+
 
 # Show the new settings of the selected VM
 show_vmsettings
