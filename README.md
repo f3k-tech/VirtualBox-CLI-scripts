@@ -2,6 +2,11 @@
 
 Install and Edit Virtualbox virtual machines from the command line.
 
+## What works?
+
+* The create script works fine.
+* The settings script is still in progress. Resizing of VM's is not working 100%.
+
 ## Important notes
 
 * Don't quote paths.
